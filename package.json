@@ -2,5 +2,8 @@
   "devDependencies": {
     "cypress": "^13.16.0",
     "cypress-v10-preserve-cookie": "^1.2.1"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.13.0"
   }
 }

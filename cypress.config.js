@@ -1,6 +1,6 @@
-import { defineConfig } from "cypress";
+const { defineConfig } = require('cypress');
 
-export default defineConfig({
+module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://www.boostcasino.com/',
     viewportWidth: 1920,
@@ -8,8 +8,12 @@ export default defineConfig({
     video: false,
     preserveCookiesBetweenTests: true,
     scrollBehavior: false,
+    chromeWebSecurity: false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    env: {
+      hideXhr: true
+    }
   },
 });
