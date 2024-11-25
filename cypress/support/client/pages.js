@@ -38,5 +38,22 @@ export default {
 
     gameIframe() {
         return cy.get('#ax-game-iframe');
-    }
+    },
+
+    // Language
+    languageDropdown() {
+        return cy.get('[data-cy="navDropdown-language"]');
+    },
+
+    activeLanguage() {
+        return this.languageDropdown().find('.active-item');
+    },
+
+    languageMenu() {
+        return this.languageDropdown().find('[data-af="nav"]');
+    },
+
+    languageFromMenu(index) {
+        return this.languageMenu().find('.sc-cKajLJ').eq(index);
+    },
 }
