@@ -4,6 +4,14 @@ export default {
         return cy.get('.sc-crXcEl.cQZcGq');
     },
 
+    welcomeMessage() {
+        return cy.get('.sc-hHLeRK.kztSfJ');
+    },
+
+    customerSupportMessage() {
+        return cy.get('.sc-gFGZVQ').eq(4);
+    },
+
     filterSearch() {
         return cy.get('[data-cy="filter_search"]');
     },

@@ -1,4 +1,4 @@
-import pages from "./pages"
+import pages from "./pages";
 
 export default {
 
@@ -36,5 +36,23 @@ export default {
         });
     },
 
+    // Language
+    openLanguageDropdown() {
+        pages.languageDropdown().click();
+        pages.languageMenu().should('be.visible');
+    },
 
+    clickOnLanguageFromDropdown(index) {
+        pages.languageFromMenu(index).click();
+    },
+
+    checkLanguageFromDropdown(index, langCode) {
+        pages.languageFromMenu(index).contains(langCode);
+    },
+
+    verifyLanguageChange(urlSuffix, welcomeMessage, customerSupportMessage) {
+        cy.url().should('include', urlSuffix);
+        pages.welcomeMessage().should('have.text', welcomeMessage);
+        pages.customerSupportMessage().should('have.text', customerSupportMessage);
+    },
 }
