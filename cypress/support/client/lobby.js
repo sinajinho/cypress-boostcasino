@@ -2,8 +2,8 @@ import pages from "./pages";
 
 export default {
 
-    confirmUserLoggedOut() {
-        pages.loginButton().contains('Log in').should('be.visible');
+    confirmUserLoggedOut(platformType) {
+        pages.loginButton(platformType).contains('Log in').should('be.visible');
     },
 
     searchInputVisible() {

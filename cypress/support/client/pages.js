@@ -1,7 +1,11 @@
 export default {
 
-    loginButton() {
-        return cy.get('.sc-crXcEl.cQZcGq');
+    loginButton(platformType) {
+        if (platformType === 'mobile') {
+            return cy.get('.sc-jqUVSM')
+        } else {
+            return cy.get('.sc-crXcEl.cQZcGq');
+        };
     },
 
     welcomeMessage() {
@@ -48,6 +52,14 @@ export default {
         return cy.get('#ax-game-iframe');
     },
 
+    categoryHeader() {
+        return cy.get('.sc-lmHNfd.gNsA-Dz');
+    },
+
+    categoryTab() {
+        return cy.get('.MuiButtonBase-root');
+    },
+
     // Language
     languageDropdown() {
         return cy.get('[data-cy="navDropdown-language"]');
@@ -63,5 +75,23 @@ export default {
 
     languageFromMenu(index) {
         return this.languageMenu().find('.sc-cKajLJ').eq(index);
+    },
+
+    // Hamburger menu
+
+    burgerIcon() {
+        return cy.get('.sc-hNKHps');
+    },
+
+    categoryColumn() {
+        return cy.get('.sc-tsFYE.hFCUsE');
+    },
+
+    mainCategory() {
+        return cy.get('.sc-crXcEl.jatWcX');
+    },
+
+    subCategory() {
+        return cy.get('.sc-crXcEl.clWtKC');
     },
 }
