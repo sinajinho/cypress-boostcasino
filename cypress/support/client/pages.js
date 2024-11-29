@@ -16,6 +16,10 @@ export default {
         return cy.get('.sc-gFGZVQ').eq(4);
     },
 
+    categoryHeaderMessage() {
+        return cy.get('.sc-hHLeRK.fWWojK');
+    },
+
     filterSearch() {
         return cy.get('[data-cy="filter_search"]');
     },

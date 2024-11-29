@@ -1,4 +1,5 @@
 import pages from "./pages";
+import { categoryTabs } from "../../fixtures/categoryData";
 
 export default {
 
@@ -36,6 +37,14 @@ export default {
         });
     },
 
+    checkHeaderMessage(message) {
+        pages.categoryHeaderMessage().should('have.text', message);
+    },
+
+    verifyUrlSuffix(urlSuffix) {
+        cy.url().should('include', urlSuffix);
+    },
+
     // Language
     openLanguageDropdown() {
         pages.languageDropdown().click();
@@ -51,7 +60,7 @@ export default {
     },
 
     verifyLanguageChange(urlSuffix, welcomeMessage, customerSupportMessage) {
-        cy.url().should('include', urlSuffix);
+        this.verifyUrlSuffix(urlSuffix)
         pages.welcomeMessage().should('have.text', welcomeMessage);
         pages.customerSupportMessage().should('have.text', customerSupportMessage);
     },
@@ -69,7 +78,7 @@ export default {
   
   openSubCategory(subCategoryName, categoryUrlSuffix) {
     pages.subCategory().contains(subCategoryName).should('exist').click({ force: true });
-    cy.url().should('include', categoryUrlSuffix);
+    this.verifyUrlSuffix(categoryUrlSuffix);
   },
   
   checkCategoryTabSelected(categoryName) {
@@ -78,10 +87,6 @@ export default {
   
   checkCategoryHeaderName(categoryName) {
     pages.categoryHeader().should('have.text', categoryName);
-  },
-  
-  checkCategoryLoaded(categoryName) {
-    this.checkCategoryTabSelected(categoryName);
   },
   
   verifyMainCategories() {
@@ -123,5 +128,39 @@ export default {
     pages.subCategory().eq(2).should('have.text', 'Casino Promotions').should('be.visible');
     pages.subCategory().eq(3).should('have.text', 'Live Casino Promotions').should('be.visible');
     pages.subCategory().eq(4).should('have.text', 'All Promotions').should('be.visible');
+  },
+
+  verifyAllSubCategories () {
+    categoryTabs.forEach((mainCategory) => {
+        if (mainCategory.verifyMethod) { 
+            this.openMainCategory(mainCategory.name);
+            this[mainCategory.verifyMethod]();
+        }
+    });
+  },
+
+  checkAllCategories() {
+    // Navigate to all categories from burger menu
+    categoryTabs.forEach((mainCategory) => {
+        mainCategory.sections.forEach((section) => {
+            this.openBurgerMenu();
+
+            if (mainCategory.name === 'Customer Support') {
+                this.openMainCategory(mainCategory.name);
+                this.verifyUrlSuffix(mainCategory.urlMap.main);
+            } else {
+            this.openMainCategory(mainCategory.name);
+            this.openSubCategory(section, mainCategory.urlMap[section]);
+            };
+  
+            if (mainCategory.name === 'Promotions') {
+                this.checkCategoryHeaderName(section);
+            } else if (mainCategory.name === 'Customer Support') {
+                this.checkHeaderMessage(mainCategory.headerMessage.text);
+            } else {
+                this.checkCategoryTabSelected(section);
+            };
+        });
+    });
   },
 }
