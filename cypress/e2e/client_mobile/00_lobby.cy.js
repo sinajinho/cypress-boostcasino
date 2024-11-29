@@ -7,10 +7,13 @@ describe('BoostCasino Mobile Test Suite', () => {
     beforeEach(() => {
         cy.handleCookieConsent();
         urls.visitBoostHome(platformType);
-        // cy.handleCookieConsent();
         lobby.confirmUserLoggedOut(platformType);
     });
     
-    it('', () => {
-    });
+    it('A (logged out) user should be able to browse BoostCasino by the mean of the hamburger menu', () => {
+        lobby.openBurgerMenu();
+        lobby.verifyMainCategories();
+        lobby.verifyAllSubCategories();
+        lobby.checkAllCategories();
+      });
 });
