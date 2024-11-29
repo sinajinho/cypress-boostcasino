@@ -5,5 +5,14 @@
   },
   "dependencies": {
     "cypress-real-events": "^1.13.0"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:desktop:headed": "cypress run --headed --browser chrome --spec 'cypress/e2e/client_desktop/**/*.cy.js'",
+    "cy:desktop:headless": "cypress run --browser chrome --spec 'cypress/e2e/client_desktop/**/*.cy.js'",
+    "cy:mobile:headed": "cypress run --headed --browser chrome --spec 'cypress/e2e/client_mobile/**/*.cy.js'",
+    "cy:mobile:headless": "cypress run --browser chrome --spec 'cypress/e2e/client_mobile/**/*.cy.js'",
+    "test:all:headed": "npm run cy:desktop:headed && npm run cy:mobile:headed",
+    "test:all:headless": "npm run cy:desktop:headless && npm run cy:mobile:headless"
   }
 }
