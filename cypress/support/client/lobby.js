@@ -38,7 +38,7 @@ export default {
     },
 
     checkHeaderMessage(message) {
-        pages.categoryHeaderMessage().should('have.text', message);
+        pages.categoryHeaderMessage().should('have.text', message).and('be.visible');
     },
 
     verifyUrlSuffix(urlSuffix) {
@@ -56,13 +56,13 @@ export default {
     },
 
     checkLanguageFromDropdown(index, langCode) {
-        pages.languageFromMenu(index).contains(langCode);
+        pages.languageFromMenu(index).contains(langCode).and('be.visible');
     },
 
     verifyLanguageChange(urlSuffix, welcomeMessage, customerSupportMessage) {
         this.verifyUrlSuffix(urlSuffix)
-        pages.welcomeMessage().should('have.text', welcomeMessage);
-        pages.customerSupportMessage().should('have.text', customerSupportMessage);
+        pages.welcomeMessage().should('have.text', welcomeMessage).and('be.visible');
+        pages.customerSupportMessage().should('have.text', customerSupportMessage).and('be.visible');
     },
 
     // Category
@@ -86,48 +86,48 @@ export default {
   },
   
   checkCategoryHeaderName(categoryName) {
-    pages.categoryHeader().should('have.text', categoryName);
+    pages.categoryHeader().should('have.text', categoryName).and('be.visible');
   },
   
   verifyMainCategories() {
-    pages.mainCategory().eq(0).should('have.text', 'Home').should('be.visible');
-    pages.mainCategory().eq(1).should('have.text', 'Casino').should('be.visible');
-    pages.mainCategory().eq(2).should('have.text', 'Live Casino').should('be.visible');
-    pages.mainCategory().eq(3).should('have.text', 'Promotions').should('be.visible');
-    pages.mainCategory().eq(4).should('have.text', 'Customer Support').should('be.visible');
+    pages.mainCategory().eq(0).should('have.text', 'Home').and('be.visible');
+    pages.mainCategory().eq(1).should('have.text', 'Casino').and('be.visible');
+    pages.mainCategory().eq(2).should('have.text', 'Live Casino').and('be.visible');
+    pages.mainCategory().eq(3).should('have.text', 'Promotions').and('be.visible');
+    pages.mainCategory().eq(4).should('have.text', 'Customer Support').and('be.visible');
   },
   
   verifyCasinoSubCategories() {
-    pages.subCategory().eq(0).should('have.text', 'Popular ').should('be.visible');
-    pages.subCategory().eq(1).should('have.text', 'New').should('be.visible');
-    pages.subCategory().eq(2).should('have.text', 'Slots').should('be.visible');
-    pages.subCategory().eq(3).should('have.text', 'Jackpots').should('be.visible');
-    pages.subCategory().eq(4).should('have.text', 'Buy Feature').should('be.visible');
-    pages.subCategory().eq(5).should('have.text', 'Hot Slots').should('be.visible');
-    pages.subCategory().eq(6).should('have.text', 'Table Games').should('be.visible');
-    pages.subCategory().eq(7).should('have.text', 'Drops & Wins').should('be.visible');
-    pages.subCategory().eq(8).should('have.text', 'Cash Drop').should('be.visible');
-    pages.subCategory().eq(9).scrollIntoView().should('have.text', 'Arcade').should('be.visible');
-    pages.subCategory().eq(10).should('have.text', 'Cluster Games').should('be.visible');
-    pages.subCategory().eq(11).should('have.text', 'Latest Provider').should('be.visible');
-    pages.subCategory().eq(12).should('have.text', 'Exclusives').should('be.visible');
+    pages.subCategory().eq(0).should('have.text', 'Popular ').and('be.visible');
+    pages.subCategory().eq(1).should('have.text', 'New').and('be.visible');
+    pages.subCategory().eq(2).should('have.text', 'Slots').and('be.visible');
+    pages.subCategory().eq(3).should('have.text', 'Jackpots').and('be.visible');
+    pages.subCategory().eq(4).should('have.text', 'Buy Feature').and('be.visible');
+    pages.subCategory().eq(5).should('have.text', 'Hot Slots').and('be.visible');
+    pages.subCategory().eq(6).should('have.text', 'Table Games').and('be.visible');
+    pages.subCategory().eq(7).should('have.text', 'Drops & Wins').and('be.visible');
+    pages.subCategory().eq(8).should('have.text', 'Cash Drop').and('be.visible');
+    pages.subCategory().eq(9).scrollIntoView().should('have.text', 'Arcade').and('be.visible');
+    pages.subCategory().eq(10).should('have.text', 'Cluster Games').and('be.visible');
+    pages.subCategory().eq(11).should('have.text', 'Latest Provider').and('be.visible');
+    pages.subCategory().eq(12).should('have.text', 'Exclusives').and('be.visible');
   },
   
   verifyLiveCasinoSubCategories() {
-    pages.subCategory().eq(0).should('have.text', 'Popular').should('be.visible');
-    pages.subCategory().eq(1).should('have.text', 'Game Shows').should('be.visible');
-    pages.subCategory().eq(2).should('have.text', 'Roulette').should('be.visible');
-    pages.subCategory().eq(3).should('have.text', 'Blackjack').should('be.visible');
-    pages.subCategory().eq(4).should('have.text', 'Baccarat').should('be.visible');
-    pages.subCategory().eq(5).should('have.text', 'Poker').should('be.visible');
+    pages.subCategory().eq(0).should('have.text', 'Popular').and('be.visible');
+    pages.subCategory().eq(1).should('have.text', 'Game Shows').and('be.visible');
+    pages.subCategory().eq(2).should('have.text', 'Roulette').and('be.visible');
+    pages.subCategory().eq(3).should('have.text', 'Blackjack').and('be.visible');
+    pages.subCategory().eq(4).should('have.text', 'Baccarat').and('be.visible');
+    pages.subCategory().eq(5).should('have.text', 'Poker').and('be.visible');
   },
   
   verifyPromotionsSubCategories() {
-    pages.subCategory().eq(0).should('have.text', 'Welcome Bonus').should('be.visible');
-    pages.subCategory().eq(1).should('have.text', 'Boost XP').should('be.visible');
-    pages.subCategory().eq(2).should('have.text', 'Casino Promotions').should('be.visible');
-    pages.subCategory().eq(3).should('have.text', 'Live Casino Promotions').should('be.visible');
-    pages.subCategory().eq(4).should('have.text', 'All Promotions').should('be.visible');
+    pages.subCategory().eq(0).should('have.text', 'Welcome Bonus').and('be.visible');
+    pages.subCategory().eq(1).should('have.text', 'Boost XP').and('be.visible');
+    pages.subCategory().eq(2).should('have.text', 'Casino Promotions').and('be.visible');
+    pages.subCategory().eq(3).should('have.text', 'Live Casino Promotions').and('be.visible');
+    pages.subCategory().eq(4).should('have.text', 'All Promotions').and('be.visible');
   },
 
   verifyAllSubCategories () {

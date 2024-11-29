@@ -4,8 +4,8 @@ import game from "../../support/client/game";
 
 describe('BoostCasino Desktop Test Suite', () => {
     beforeEach(() => {
-        urls.visitBoostHome();
         cy.handleCookieConsent();
+        urls.visitBoostHome();
         lobby.confirmUserLoggedOut();
     });
     

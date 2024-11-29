@@ -1,4 +1,14 @@
 export const categoryTabs = [
+    {
+        name: 'Customer Support',
+        sections: ['Customer Support'],
+        urlMap: {
+            'main': '/customer-support'
+        },
+        headerMessage: {
+            text: 'Hello. What can we help you with?'
+        }
+    },
     { 
         name: 'Casino',
         sections: ['Popular', 'New', 'Slots', 'Jackpots', 'Buy Feature', 'Hot Slots', 'Table Games', 'Drops & Wins', 'Cash Drop', 'Arcade', 'Cluster Games', 'Latest Provider', 'Exclusives'],
@@ -44,14 +54,4 @@ export const categoryTabs = [
         },
         verifyMethod: 'verifyPromotionsSubCategories'
     },
-    {
-        name: 'Customer Support',
-        sections: ['Customer Support'],
-        urlMap: {
-            'main': '/customer-support'
-        },
-        headerMessage: {
-            text: 'Hello. What can we help you with?'
-        }
-    }
 ];
